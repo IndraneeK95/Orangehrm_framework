@@ -13,11 +13,13 @@ Test Template   Verify invalid credential test
 *** Test Cases ***
 TC1     John        john123     Invalid credentials
 TC2     Peter       peter123    Invalid credentials
+TC3     ${EMPTY}    admin123    Username cannot be empty
+TC4     Admin       ${EMPTY}    Password cannot be empty
 
 *** Keywords ***
 Verify invalid credential test
     [Arguments]     ${username}     ${password}     ${error}
-    Input Text    id=txtUsername    Ind123      ${username}
-    Input Password      id=txtPassword    apass123      ${password}
+    Input Text    id=txtUsername    ${username}
+    Input Password      id=txtPassword    ${password}
     Click Element    id=btnLogin
-    Element Text Should Be    id=spanMessage    Invalid credentials     ${error}
+    Element Text Should Be    id=spanMessage    ${error}
