@@ -6,9 +6,12 @@ Resource        ../Resource/Base/CommonFunctionality.resource
 
 Test Setup      Launch Browser
 Test Teardown   Close Browser
+Test Template   Verify Add Emergency Contact Test
+
 
 *** Test Cases ***
-TC1
+TC1     Admin   admin123    John    Brother     787878
+TC2     Admin   admin123    Sandy   Sister      787878
 
 
 *** Keywords ***
