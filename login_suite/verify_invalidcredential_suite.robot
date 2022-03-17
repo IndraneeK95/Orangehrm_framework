@@ -6,13 +6,18 @@ Resource        ../Resource/Base/CommonFunctionality.resource
 
 Test Setup      Launch Browser
 Test Teardown   Close Browser
+Test Template   Verify invalid credential test
 
 
 
 *** Test Cases ***
-Verify invalid credential test
+TC1     John        john123     Invalid credentials
+TC2     Peter       peter123    Invalid credentials
 
-    Input Text    id=txtUsername    Ind123
-    Input Password      id=txtPassword    apass123
+*** Keywords ***
+Verify invalid credential test
+    [Arguments]     ${username}     ${password}     ${error}
+    Input Text    id=txtUsername    Ind123      ${username}
+    Input Password      id=txtPassword    apass123      ${password}
     Click Element    id=btnLogin
-    Element Text Should Be    id=spanMessage    Invalid credentials
+    Element Text Should Be    id=spanMessage    Invalid credentials     ${error}
