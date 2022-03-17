@@ -4,6 +4,7 @@ Documentation           This suite will handle all the test cases related
 
 Resource        ../Resource/Base/CommonFunctionality.resource
 
+
 Test Setup      Launch Browser
 Test Teardown   Close Browser
 Test Template   Verify invalid credential test
