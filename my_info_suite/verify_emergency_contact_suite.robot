@@ -28,5 +28,5 @@ Verify Add Emergency Contact Test
     Input Text    id=emgcontacts_relationship    ${emgrelation}
     Input Text    id=emgcontacts_homePhone    ${emgphone}
     Click Element    id=btnSaveEContact
-    Table Should Contain    id=emgcontact_list    Sat
-    Table Should Contain    id=emgcontact_list    78787
+    Table Should Contain    id=emgcontact_list    ${emgcontact}
+    Table Should Contain    id=emgcontact_list    ${emgphone}
