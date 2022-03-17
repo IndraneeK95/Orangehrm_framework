@@ -5,9 +5,12 @@ Documentation       This file handles browser configuration , reusable scripts
 
 Library     SeleniumLibrary
 
+*** Variables ***
+${BROWSER_NAME}  chrome
+${URL}          https://opensource-demo.orangehrmlive.com/
 *** Keywords ***
 Launch Browser
-    Open Browser    browser=chrome  executable_path=${EXECDIR}${/}driver${/}chromedriver
+    Open Browser    browser=${BROWSER_NAME}     executable_path=${EXECDIR}${/}driver${/}chromedriver
     Maximize Browser Window
     Set Selenium Implicit Wait    30s
-    Go To    url=https://opensource-demo.orangehrmlive.com/
+    Go To    url=${URL}
