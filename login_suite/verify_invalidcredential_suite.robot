@@ -24,3 +24,4 @@ Verify invalid credential test
     Input Password      id=txtPassword    ${password}
     Click Element    id=btnLogin
     Element Text Should Be    id=spanMessage    ${error}
+    Capture Page Screenshot

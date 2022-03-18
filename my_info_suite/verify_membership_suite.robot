@@ -17,7 +17,7 @@ TC1
 
 *** Keywords ***
 Verify Add membership details
-    [Arguments]     ${username}     ${password}     ${membership}       ${amount}      ${currency}
+    [Arguments]     ${username}     ${password}     ${membership}       ${amount}      ${currency}      ${date1}   ${date2}
     Launch Browser
     Set Selenium Speed    2s
     Input Text    id=txtUsername    ${username}
@@ -30,13 +30,9 @@ Verify Add membership details
     Select From List By Label    id=membership_subscriptionPaidBy   Company
     Input Text    id=membership_subscriptionAmount   ${amount}
     Select From List By Label    id=membership_currency     ${currency}
+    Input Text    id=membership_subscriptionCommenceDate    ${date1}
+    Input Text    id=membership_subscriptionRenewalDate     ${date2}
     Click Element    id=btnSaveMembership
-    Log To Console    Added Membership details are
-    ${val1}     Get Text    partial link=ACCA
-    ${val2}     Get Text    xpath=//td[normalize-space()='Individual']
-    ${val3}     Get Text    xpath=//td[normalize-space()='600.00']
-    ${val4}     Get Text    xpath=//tbody/tr[1]/td[5]
-    Log To Console    ${val1}
-    Log To Console    ${val2}
-    Log To Console    ${val3}
-    Log To Console    ${val4}
+    Table Should Contain        xpath=//table[@class='table hover']     ${membership}
+    Table Should Contain    xpath =//table[@class='table hover']   Company
+    Table Should Contain    xpath=//table[@class='table hover']    ${amount}
