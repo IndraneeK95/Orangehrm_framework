@@ -3,6 +3,8 @@
 Documentation       This suite handles test cases related to membership
 
 Resource        ../Resource/Base/CommonFunctionality.resource
+Resource        ../Resource/Pages/LoginPage.resource
+Resource        ../Resource/Pages/MainPage.resource
 
 Library        DataDriver         file=../test_data/orange_data.xlsx       sheet_name=membership
 Library    XML

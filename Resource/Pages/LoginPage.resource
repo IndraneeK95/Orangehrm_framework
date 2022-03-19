@@ -6,7 +6,7 @@ Resource        ../Base/CommonFunctionality.resource
 *** Variables ***
 ${USERNAME_LOCATOR}     id=txtUsername
 ${PASSWORD_LOCATOR}     id=txtPassword
-${BUTTON_LOCATOR}       id=btnLogin
+${LOGIN_LOCATOR}       id=btnLogin
 
 *** Keywords ***
 
@@ -19,4 +19,8 @@ Enter Password
     Input Text     ${PASSWORD_LOCATOR}   ${password}
     
 Click Login
-    Click Element    ${BUTTON_LOCATOR}
+    Click Element    ${LOGIN_LOCATOR}
+    
+Validate_error_message
+    [Arguments]         ${message}
+    Page Should Contain    ${message}
