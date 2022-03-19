@@ -13,5 +13,5 @@ Verify valid credential test
     Launch Browser
     Enter Username    Admin
     Enter Password    admin123
-    Click Element    id=btnLogin
+    Click Login    
     Page Should Contain    My Info
